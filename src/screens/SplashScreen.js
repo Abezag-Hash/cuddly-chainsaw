@@ -8,13 +8,14 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const Splash = ({ navigation }) => {
+const Splash = (props) => {
+  console.log(props);
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#0080FF" />
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Home");
+          props.func({ splash: false });
         }}
       >
         <Image

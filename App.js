@@ -9,14 +9,32 @@ import {
   SafeAreaView,
   contentOptions,
 } from "react-navigation";
-import { createDrawerNavigator } from "react-navigation-drawer";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "react-navigation-drawer";
 import Splash from "./src/screens/SplashScreen";
+import HomeScreen from "./src/screens/HomeScreen";
+function CustomDrawerContent(props) {
+  return (
+    <DrawerContentScrollView style={{ justifyContent: center }}>
+      <DrawerItemList />
+    </DrawerContentScrollView>
+  );
+}
 
 class Home extends React.Component {
+  state = { splash: true };
+
   render() {
+    console.log(this.state);
     return (
       <View style={styles.container}>
-        <SplashScreen />
+        <Text>Rohit</Text>
+        {this.splash ? <Splash func={this.setState} /> : <HomeScreen />}
+
+        <Text> Camera</Text>
       </View>
     );
   }
@@ -111,57 +129,49 @@ const RouteConfigs = {
     },
   },
 
-  Settings: {
-    screen: SettingScreen,
-    navigationOptions: {
-      drawerIcon: ({ tintColor }) => (
-        <Icon name="ios-settings" size={20} color={tintColor} />
-      ),
-    },
-  },
-
-  "Rendez Vous": {
-    screen: RendezVous,
-    navigationOptions: {
-      drawerIcon: ({ tintColor }) => (
-        <Icon name="ios-home" size={20} color={tintColor} />
-      ),
-    },
-  },
-  "Parcours de soin": {
-    screen: ParcoursDeSoin,
-    navigationOptions: {
-      drawerIcon: ({ tintColor }) => (
-        <Icon name="ios-home" size={20} color={tintColor} />
-      ),
-    },
-  },
-
-  Ordonnances: {
-    screen: Ordonnances,
-    navigationOptions: {
-      drawerIcon: ({ tintColor }) => (
-        <Icon name="ios-home" size={20} color={tintColor} />
-      ),
-    },
-  },
-  Analyses: {
-    screen: Analyses,
-    navigationOptions: {
-      drawerIcon: ({ tintColor }) => (
-        <Icon name="md-analytics" size={20} color={tintColor} />
-      ),
-    },
-  },
-  Profil: {
+  Profile: {
     screen: Profil,
     navigationOptions: {
       drawerIcon: ({ tintColor }) => (
-        <Icon name="ios-home" size={20} color={tintColor} />
+        <Icon name="person" size={20} color={tintColor} />
       ),
     },
   },
-  APropos: {
+
+  Log: {
+    screen: RendezVous,
+    navigationOptions: {
+      drawerIcon: ({ tintColor }) => (
+        <Icon name="pencil" size={20} color={tintColor} />
+      ),
+    },
+  },
+  Weather: {
+    screen: ParcoursDeSoin,
+    navigationOptions: {
+      drawerIcon: ({ tintColor }) => (
+        <Icon name="cloud" size={20} color={tintColor} />
+      ),
+    },
+  },
+
+  "Fish List": {
+    screen: Analyses,
+    navigationOptions: {
+      drawerIcon: ({ tintColor }) => (
+        <Icon name="analytics-outline" size={20} color={tintColor} />
+      ),
+    },
+  },
+  "Rate us": {
+    screen: Ordonnances,
+    navigationOptions: {
+      drawerIcon: ({ tintColor }) => (
+        <Icon name="heart" size={20} color={tintColor} />
+      ),
+    },
+  },
+  Help: {
     screen: APropos,
     navigationOptions: {
       drawerIcon: ({ tintColor }) => (
@@ -169,11 +179,11 @@ const RouteConfigs = {
       ),
     },
   },
-  Login: {
-    screen: Login,
+  Settings: {
+    screen: SettingScreen,
     navigationOptions: {
       drawerIcon: ({ tintColor }) => (
-        <Icon name="ios-home" size={20} color={tintColor} />
+        <Icon name="ios-settings" size={20} color={tintColor} />
       ),
     },
   },
@@ -183,23 +193,28 @@ const DrawerNavigatorConfig = {
   intialRouteName: "Home",
   navigationOptions: {
     headerStyle: {
-      backgroundColor: "#f4511e",
+      backgroundColor: "#000000",
     },
-    headerTintColor: "#fff",
+    headerTintColor: "#000000",
     headerTitleStyle: {
       color: "white",
     },
   },
   contentOptions: {
-    activeTintColor: "#e91e63",
+    activeTintColor: "#FFFFFF",
+    inactiveTintColor: "#FFFFFF",
+    activeBackgroundColor: "#00245a",
     itemsContainerStyle: {
-      marginVertical: 0,
+      marginVertical: 50,
+    },
+    itemStyle: {
+      height: 70,
     },
     iconContainerStyle: {
       opacity: 1,
     },
   },
-  drawerBackgroundColor: "grey",
+  drawerBackgroundColor: "#0080FF",
 };
 
 const Navigator = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
@@ -210,6 +225,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#0080FF",
   },
 });
