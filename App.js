@@ -17,8 +17,8 @@ import {
 import Splash from "./src/screens/SplashScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import WeatherScreen from "./src/screens/Weather";
-import Weight from "./src/Components/weight";
-
+// import Weight from "./src/Components/weight";
+import Rohit from "./src/screens/tflight";
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView style={{ justifyContent: center }}>
@@ -52,7 +52,7 @@ class SettingScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Settings</Text>
+        <Rohit></Rohit>
       </View>
     );
   }
@@ -62,7 +62,8 @@ class RendezVous extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Weight></Weight>
+        {/* <Weight></Weight> */}
+        <Text>RENDEZVOUS</Text>
       </View>
     );
   }
