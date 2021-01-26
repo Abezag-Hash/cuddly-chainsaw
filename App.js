@@ -31,7 +31,15 @@ class Home extends React.Component {
     console.log(this.state);
     return (
       <View style={styles.container}>
-        {this.splash ? <Splash func={this.setState} /> : <HomeScreen />}
+        {this.state.splash ? (
+          <Splash
+            func={() => {
+              this.setState({ splash: false });
+            }}
+          />
+        ) : (
+          <HomeScreen />
+        )}
       </View>
     );
   }

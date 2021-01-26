@@ -15,7 +15,7 @@ const Splash = (props) => {
       <StatusBar barStyle="light-content" backgroundColor="#0080FF" />
       <TouchableOpacity
         onPress={() => {
-          props.func({ splash: false });
+          props.func();
         }}
       >
         <Image
