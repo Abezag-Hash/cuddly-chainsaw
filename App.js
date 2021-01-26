@@ -17,6 +17,7 @@ import {
 import Splash from "./src/screens/SplashScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import WeatherScreen from "./src/screens/Weather";
+import Weight from "./src/Components/weight";
 
 function CustomDrawerContent(props) {
   return (
@@ -61,7 +62,7 @@ class RendezVous extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <WeatherScreen />
+        <Weight></Weight>
       </View>
     );
   }
@@ -71,7 +72,7 @@ class ParcoursDeSoin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>ParcoursDeSoin</Text>
+        <WeatherScreen />
       </View>
     );
   }

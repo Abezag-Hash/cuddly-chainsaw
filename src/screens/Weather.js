@@ -1,29 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View, Animated } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, Animated } from "react-native";
 
 // import { DangerZone } from 'expo';
 // const { Lottie } = DangerZone;
 
-import { API_KEY } from '../../Utils/WeatherAPIKey';
+import { API_KEY } from "../../Utils/WeatherAPIKey";
 
-import Weather from '../Components/Weather';
+import Weather from "../Components/Weather";
 
 export default class func extends React.Component {
   state = {
     isLoading: true,
     temperature: 0,
     weatherCondition: null,
-    error: null
+    error: null,
   };
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
-      position => {
+      (position) => {
         this.fetchWeather(position.coords.latitude, position.coords.longitude);
       },
-      error => {
+      (error) => {
         this.setState({
-          error: 'Error Getting Weather Condtions'
+          error: "Error Getting Weather Condtions",
         });
       }
     );
@@ -33,13 +33,13 @@ export default class func extends React.Component {
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
     )
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         // console.log(json);
         this.setState({
           temperature: json.main.temp,
           weatherCondition: json.weather[0].main,
-          isLoading: false
+          isLoading: false,
         });
       });
   }
@@ -63,15 +63,16 @@ export default class func extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: "#fff",
   },
   loadingContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFFDE4'
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#0080FF",
   },
   loadingText: {
-    fontSize: 30
-  }
+    fontSize: 20,
+    color: "white",
+  },
 });
