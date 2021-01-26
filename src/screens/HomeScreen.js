@@ -1,13 +1,32 @@
-import React from "react";
-import { Text, StyleSheet } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, View, Alert, Button } from "react-native";
+import { RNCamera } from "react-native-camera";
 
-const HomeScreen = () => {
-  return <Text style={styles.text}>HomeScreen</Text>;
-};
+class HomeScreen extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <RNCamera
+          style={{ flex: 1, alignItems: "center" }}
+          ref={(ref) => {
+            this.camera = ref;
+          }}
+        />
+        <Button
+          title="Log"
+          accessibilityLabel="Learn more about this purple button"
+          onPress={() => Alert.alert("Log Karle Rohit")}
+        />
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 15,
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "black",
   },
 });
 

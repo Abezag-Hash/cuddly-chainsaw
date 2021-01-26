@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import SplashScreen from "./src/screens/SplashScreen";
-
+import FishProfile from "./src/screens/FishProfile";
 import {
   createAppContainer,
   DrawerItems,
@@ -31,10 +31,7 @@ class Home extends React.Component {
     console.log(this.state);
     return (
       <View style={styles.container}>
-        <Text>Rohit</Text>
         {this.splash ? <Splash func={this.setState} /> : <HomeScreen />}
-
-        <Text> Camera</Text>
       </View>
     );
   }
@@ -93,7 +90,7 @@ class Ordonnances extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Ordonnances</Text>
+        <Rate></Rate>
       </View>
     );
   }
@@ -113,7 +110,7 @@ class Analyses extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Analyses</Text>
+        <FishProfile />
       </View>
     );
   }
