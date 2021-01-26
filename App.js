@@ -16,6 +16,8 @@ import {
 } from "react-navigation-drawer";
 import Splash from "./src/screens/SplashScreen";
 import HomeScreen from "./src/screens/HomeScreen";
+import WeatherScreen from "./src/screens/Weather";
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView style={{ justifyContent: center }}>
@@ -59,7 +61,7 @@ class RendezVous extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>RendezVous</Text>
+        <WeatherScreen />
       </View>
     );
   }
